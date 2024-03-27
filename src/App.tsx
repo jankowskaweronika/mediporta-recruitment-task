@@ -1,4 +1,5 @@
-import TableOfTags from './components/TableOfTags'
+import TableOfTags from './components/molecules/TableOfTags'
+
 import './App.css'
 
 function App() {

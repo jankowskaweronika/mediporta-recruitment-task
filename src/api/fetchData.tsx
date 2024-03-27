@@ -1,7 +1,7 @@
-type Tag = {
+type Tag = [{
   name: string;
   count: number;
-};
+}];
 
 export const fetchData = async (): Promise<Tag[]> => {
   try {
