@@ -7,6 +7,7 @@ import TableHead from "../atoms/TableHead/TableHead";
 import TableRow from "../atoms/TableRow/TableRow";
 import Typography from "../atoms/Typography/Typography";
 
+
 // rows
 type Data = {
   Id: number;
