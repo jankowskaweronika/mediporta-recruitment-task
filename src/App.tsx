@@ -1,5 +1,4 @@
-import TableOfTags from './components/molecules/TableOfTags'
-import Pagination from './components/molecules/Pagination'
+import Table from './components/organisms/TableComponent'
 
 import './App.css'
 
@@ -7,8 +6,7 @@ function App() {
 
   return (
     <>
-      <TableOfTags />
-      <Pagination />
+      <Table />
     </>
   )
 }
