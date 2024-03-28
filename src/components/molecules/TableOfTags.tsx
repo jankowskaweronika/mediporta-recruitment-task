@@ -15,6 +15,7 @@ const TableOfTags = (props: BoxProps) => {
   return (
     <Box
       sx={{
+        backgroundColor: 'white',
         border: '3px solid white',
         ...sx,
       }}
@@ -31,7 +32,6 @@ const TableOfTags = (props: BoxProps) => {
           <TableBody>
             <TableRow>
               <TableCell>
-
               </TableCell>
             </TableRow>
           </TableBody>
