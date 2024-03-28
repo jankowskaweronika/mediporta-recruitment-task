@@ -7,20 +7,27 @@ import TableHead from "../atoms/TableHead/TableHead";
 import TableRow from "../atoms/TableRow/TableRow";
 import Typography from "../atoms/Typography/Typography";
 
+// rows
 type Data = {
-  id: number;
-  tags: string;
-  amount: number;
+  Id: number;
+  Tags: string;
+  Amount: number;
 };
 
-function createData(id: number, tags: string, amount: number): Data {
+function createData(Id: number, Tags: string, Amount: number): Data {
   return {
-    id,
-    tags,
-    amount
+    Id,
+    Tags,
+    Amount
   };
 }
 
+//headCell
+type HeadCell = keyof Data
+
+const headCells: HeadCell[] = ['Id', 'Tags', 'Amount']
+
+//create fake data
 const rows = [
   createData(1, 'Cupcake', 305),
   createData(2, 'Donut', 452),
@@ -57,23 +64,21 @@ const TableOfTags = (props: BoxProps) => {
             }}
           >
             <TableRow>
-              <TableCell>
-                <Typography variant="h6">ID</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="h6">Tags</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="h6">Numbers</Typography>
-              </TableCell>
+              {headCells.map((headCell) => (
+                <TableCell key={headCell}>
+                  <Typography variant="h6">{headCell}</Typography>
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell><Typography variant="body1">{row.id}</Typography></TableCell>
-                <TableCell><Typography variant="body1">{row.tags}</Typography></TableCell>
-                <TableCell><Typography variant="body1">{row.amount}</Typography></TableCell>
+              <TableRow key={row.Id}>
+                {headCells.map((headCell) => (
+                  <TableCell key={headCell}>
+                    <Typography variant="body1">{row[headCell]}</Typography>
+                  </TableCell>
+                ))}
               </TableRow>
             ))}
           </TableBody>
