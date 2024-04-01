@@ -17,7 +17,7 @@ type HeadCell = keyof RowData
 
 const headCells: HeadCell[] = ['name', 'count']
 
-type TableOfTagsProps = BoxProps & {
+export type TableOfTagsProps = BoxProps & {
   rows: RowData[],
   sortCol: string | 'name' | 'count',
   sortOrder: 'asc' | 'desc',

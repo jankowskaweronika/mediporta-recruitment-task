@@ -63,6 +63,7 @@ export const useTags = () => {
     sortCol,
     sortOrder,
     pageSize,
+    status,
 
     loadTags,
     onPageChange,

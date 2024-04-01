@@ -1,37 +1,64 @@
 import { useTags } from "../../hook/useTags"
 
+import Button from "../atoms/Button/Button"
 import TableWithPagination from "../organisms/TableWithPagination/TableWithPagination"
 
 export const MainPage = () => {
   const {
-    loadTags, 
     tags, 
     totalPages, 
     currentPage, 
     sortCol, 
     sortOrder, 
-    pageSize, 
+    // pageSize, 
+    status,
+
+    loadTags, 
     onPageChange, 
-    onSortColChange, 
-    onSortOrderChange, 
-    onPageSizeChange 
+    // onSortColChange, 
+    // onSortOrderChange, 
+    // onPageSizeChange 
   } = useTags()
 
   return (
     <div>
+      <Button
+        onClick={loadTags}
+      >
+        LOAD
+      </Button>
+      {
+        // form with options to select – molecule
+      }
+      {
+        status === 'rejected' ?
+        'error'
+        :
+          status === 'pending' ?
+          'loading data'
+          :
+          status === 'idle' ?
+          'Select options'
+          : 
+          status === 'resolved' && tags && totalPages ?
       <TableWithPagination 
-         tags={tags} 
+         rows={tags} 
          totalPages={totalPages}
          currentPage={currentPage}
          sortCol={sortCol}
          sortOrder={sortOrder}
-         pageSize={pageSize}
+         
          onPageChange={onPageChange}
-         onSortColChange={onSortColChange}
-         onSortOrderChange={onSortOrderChange}
-         onPageSizeChange={onPageSizeChange}{}
-         loadTags={loadTags}
+
+         //  pageSize={pageSize}
+        //  onSortColChange={onSortColChange}
+        //  onSortOrderChange={onSortOrderChange}
+        //  onPageSizeChange={onPageSizeChange}
+
       />
+      :
+      null
+      }
     </div>
   )
 }

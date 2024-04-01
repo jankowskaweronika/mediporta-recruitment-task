@@ -1,11 +1,33 @@
-import TableOfTags from "../../molecules/TableOfTags/TableOfTags"
-import Pagination from "../../molecules/Pagination/Pagination"
+import Pagination, { PaginationProps } from "../../atoms/Pagination/Pagination"
+import TableOfTags, { TableOfTagsProps } from "../../molecules/TableOfTags/TableOfTags"
 
-const TableWithPagination = () => {
+type TableWithPaginationProps = (
+  Pick<TableOfTagsProps, 'rows' | 'sortCol' | 'sortOrder'> &
+  { 
+    currentPage: PaginationProps['page'],
+    totalPages: PaginationProps['count'],
+    onPageChange: (newPage: number) => void,
+   }
+)
+
+const TableWithPagination = (props: TableWithPaginationProps) => {
+  const { 
+     rows,
+     sortCol,
+     sortOrder,
+     totalPages,
+     currentPage,
+     onPageChange,
+   } = props
+ 
   return (
     <>
-      <TableOfTags rows={[]} sortCol={""} sortOrder={"desc"} />
-      <Pagination />
+      <TableOfTags rows={rows} sortCol={sortCol} sortOrder={sortOrder} />
+      <Pagination 
+        page={currentPage}
+        count={totalPages}
+        onChange={(_, newPage) => onPageChange(newPage)}
+      />
     </>
   )
 }
