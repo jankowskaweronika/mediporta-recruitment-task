@@ -1,4 +1,4 @@
-import Table from './components/organisms/TableComponent/TableComponent'
+import TableWithPagination from './components/organisms/TableWithPagination/TableWithPagination'
 
 import './App.css'
 
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <Table />
+      <TableWithPagination />
     </>
   )
 }

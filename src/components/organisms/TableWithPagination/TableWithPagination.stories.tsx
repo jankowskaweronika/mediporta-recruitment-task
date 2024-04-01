@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import TableComponent from './TableComponent'
+import TableComponent from './TableWithPagination'
 
 const meta: Meta<typeof TableComponent> = {
   component: TableComponent,
@@ -8,8 +8,8 @@ const meta: Meta<typeof TableComponent> = {
 }
 
 export default meta
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {},
-};
+}
