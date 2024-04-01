@@ -10,5 +10,20 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    '@typescript-eslint/semi': ["error", "never"],
+    '@typescript-eslint/member-delimiter-style': [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "comma",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
+      }
+    ]
   },
 }

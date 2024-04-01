@@ -14,7 +14,6 @@ const Pagination = (props: PaginationProps) => {
           backgroundColor: 'white',
           ...sx
         }}
-
       />
     </Stack>
   );
