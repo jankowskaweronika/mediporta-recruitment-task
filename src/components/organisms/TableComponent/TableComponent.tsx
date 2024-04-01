@@ -1,5 +1,5 @@
-import TableOfTags from "../molecules/TableOfTags";
-import Pagination from "../molecules/Pagination";
+import TableOfTags from "../../molecules/TableOfTags/TableOfTags";
+import Pagination from "../../molecules/Pagination/Pagination";
 
 const TableComponent = () => {
   return (

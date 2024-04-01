@@ -1,11 +1,11 @@
-import Box, { BoxProps } from "../atoms/Box/Box";
-import Table from "../atoms/Table/Table";
-import TableBody from "../atoms/TableBody/TableBody";
-import TableCell from "../atoms/TableCell/TableCell";
-import TableContainer from "../atoms/TableContainer/TableContainer";
-import TableHead from "../atoms/TableHead/TableHead";
-import TableRow from "../atoms/TableRow/TableRow";
-import Typography from "../atoms/Typography/Typography";
+import Box, { BoxProps } from "../../atoms/Box/Box";
+import Table from "../../atoms/Table/Table";
+import TableBody from "../../atoms/TableBody/TableBody";
+import TableCell from "../../atoms/TableCell/TableCell";
+import TableContainer from "../../atoms/TableContainer/TableContainer";
+import TableHead from "../../atoms/TableHead/TableHead";
+import TableRow from "../../atoms/TableRow/TableRow";
+import Typography from "../../atoms/Typography/Typography";
 
 
 // rows

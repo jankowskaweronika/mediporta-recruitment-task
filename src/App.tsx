@@ -1,4 +1,4 @@
-import Table from './components/organisms/TableComponent'
+import Table from './components/organisms/TableComponent/TableComponent'
 
 import './App.css'
 
