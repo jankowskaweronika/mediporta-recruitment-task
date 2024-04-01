@@ -10,13 +10,12 @@ import Typography from "../../atoms/Typography/Typography"
 import TableSortLabel from '@mui/material/TableSortLabel'
 
 type RowData = {
-  id: number,
   name: string,
   count: number,
 }
 type HeadCell = keyof RowData
 
-const headCells: HeadCell[] = ['id', 'name', 'count']
+const headCells: HeadCell[] = ['name', 'count']
 
 type TableOfTagsProps = BoxProps & {
   rows: RowData[],
@@ -64,7 +63,7 @@ const TableOfTags = (props: TableOfTagsProps) => {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.id}>
+              <TableRow key={row.name}>
                 {headCells.map((headCell) => (
                   <TableCell key={headCell}>
                     <Typography variant="body1">{row[headCell]}</Typography>

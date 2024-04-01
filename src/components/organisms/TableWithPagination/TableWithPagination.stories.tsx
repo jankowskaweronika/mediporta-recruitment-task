@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import TableComponent from './TableWithPagination'
+import TableWithPagination from './TableWithPagination'
 
-const meta: Meta<typeof TableComponent> = {
-  component: TableComponent,
-  title: 'TableComponent'
+const meta: Meta<typeof TableWithPagination> = {
+  component: TableWithPagination,
+  title: 'TableWithPagination'
 }
 
 export default meta
