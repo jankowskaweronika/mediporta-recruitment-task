@@ -35,18 +35,16 @@ const SortOptions = (props: SortOptionsProps) => {
   return (
     <Grid
       container={true}
+      rowGap={'10px'}
     >
       <Grid
         container={true}
-        item={true}
+        spacing={'10px'}
       >
         <Grid
           item={true}
           xs={12}
           sm={6}
-          sx={{
-            padding: '10px',
-          }}
         >
           <FormControl
             fullWidth={true}
@@ -65,9 +63,6 @@ const SortOptions = (props: SortOptionsProps) => {
           item={true}
           xs={12}
           sm={6}
-          sx={{
-            padding: '10px',
-          }}
         >
           <FormControl
             fullWidth={true}
@@ -85,15 +80,12 @@ const SortOptions = (props: SortOptionsProps) => {
 
       <Grid
         container={true}
-        item={true}
+        spacing={'10px'}
       >
         <Grid
           item={true}
           xs={12}
           sm={6}
-          sx={{
-            padding: '10px',
-          }}
         >
 
           <FormControl
@@ -117,9 +109,6 @@ const SortOptions = (props: SortOptionsProps) => {
           item={true}
           xs={12}
           sm={6}
-          sx={{
-            padding: '10px',
-          }}
         >
           <FormControl
             fullWidth={true}

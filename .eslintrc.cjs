@@ -13,6 +13,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    "indent": ['warn', 2],
     "react/jsx-key": "error",
     "react/jsx-curly-spacing": [
       "warn",
