@@ -1,4 +1,4 @@
-import Pagination, { PaginationProps } from "../../atoms/Pagination/Pagination"
+import Pagination, { PaginationProps } from "../../atoms/Pagination"
 import TableOfTags, { TableOfTagsProps } from "../../molecules/TableOfTags/TableOfTags"
 
 type TableWithPaginationProps = (

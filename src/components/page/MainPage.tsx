@@ -1,6 +1,6 @@
 import { useTags } from "../../hook/useTags"
 
-import Button from "../atoms/Button/Button"
+import Button from "../atoms/Button"
 import TableWithPagination from "../organisms/TableWithPagination/TableWithPagination"
 
 export const MainPage = () => {
