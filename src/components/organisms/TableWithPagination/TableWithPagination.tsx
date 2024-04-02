@@ -13,8 +13,7 @@ type TableWithPaginationProps = (
     currentPage: PaginationProps['page'],
     totalPages: PaginationProps['count'],
     onPageChange: (newPage: number) => void,
-    onSortOrderChange: (newSortOrder: SortOrder) => void,
-    onSortColChange: (newSortCol: SortCol) => void,
+    onSortColAndOrderChange: (newSortCol: SortCol, newSortOrder: SortOrder) => void,
    }
 )
 
@@ -28,6 +27,13 @@ const mapSortColToSortColInTable = (sortCol: SortCol): SortColInTable => {
   return sortCol
 }
 
+const mapSortColtInTableToSortCol = (sortColInTable: SortColInTable): SortCol => {
+  if(sortColInTable === 'count') {
+    return 'activity'
+  }
+  return 'name'
+}
+
 const TableWithPagination = (props: TableWithPaginationProps) => {
   const { 
     rows,
@@ -36,8 +42,7 @@ const TableWithPagination = (props: TableWithPaginationProps) => {
     totalPages,
     currentPage,
     onPageChange,
-    onSortOrderChange,
-    onSortColChange,
+    onSortColAndOrderChange,
   } = props
  
   return (
@@ -46,13 +51,9 @@ const TableWithPagination = (props: TableWithPaginationProps) => {
         rows={rows} 
         sortCol={mapSortColToSortColInTable(sortCol)} 
         sortOrder={sortOrder} 
-        onSortOrderChange={onSortOrderChange}
-        onSortColChange={(newSortCol) => {
-          if(newSortCol === 'count') {
-            onSortColChange('activity')
-          } else if(newSortCol === 'name') {
-            onSortColChange('name')
-          }
+        onSortColAndOrderChange={(newSortColInTable, newSortOrder) => {
+          const sortCol = mapSortColtInTableToSortCol(newSortColInTable)
+          onSortColAndOrderChange(sortCol, newSortOrder)
         }}
       />
       <Box

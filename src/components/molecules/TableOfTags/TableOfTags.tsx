@@ -21,8 +21,8 @@ export type TableOfTagsProps = BoxProps & {
   rows: RowData[],
   sortCol: string | 'name' | 'count',
   sortOrder: SortOrder,
-  onSortOrderChange: (newSortOrder: SortOrder) => void,
-  onSortColChange: (newSortCol: 'name' | 'count') => void,
+  onSortColAndOrderChange: (newSortCol: 'name' | 'count', newSortOrder: SortOrder) => void,
+
 }
 
 const TableOfTags = (props: TableOfTagsProps) => {
@@ -30,8 +30,7 @@ const TableOfTags = (props: TableOfTagsProps) => {
     rows,
     sortCol,
     sortOrder,
-    onSortColChange,
-    onSortOrderChange,
+    onSortColAndOrderChange,
     ...otherProps
   } = props
 
@@ -54,8 +53,7 @@ const TableOfTags = (props: TableOfTagsProps) => {
                       const oppositeSortOrder = sortOrder === 'asc' ? 'desc' : 'asc'
                       const newSortCol = headCell
                       const newSortOrder = isActive ? oppositeSortOrder : defaultSortOrder
-                      onSortColChange(newSortCol)
-                      onSortOrderChange(newSortOrder)
+                      onSortColAndOrderChange(newSortCol, newSortOrder)
                     }}
                   >
                     <Typography 

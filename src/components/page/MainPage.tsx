@@ -75,17 +75,15 @@ export const MainPage = () => {
             currentPage={currentPage}
             sortCol={sortCol}
             sortOrder={sortOrder}
-            onSortOrderChange={(newSortOrder) => {
+            onSortColAndOrderChange={(newSortCol, newSortOrder) => {
+              onSortColChange(newSortCol)
               onSortOrderChange(newSortOrder)
               loadTags({
                 page: currentPage,
                 pageSize,
-                sortCol,
+                sortCol: newSortCol,
                 sortOrder: newSortOrder,
               })
-            }}
-            onSortColChange={(newSortCol) => {
-              onSortColChange(newSortCol)
             }}
             onPageChange={(newPage) => {
               onPageChange(newPage) 
