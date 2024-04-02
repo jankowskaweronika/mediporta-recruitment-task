@@ -35,10 +35,6 @@ const SortOptions = (props: SortOptionsProps) => {
   return (
     <Grid
       container={true}
-      sx={{
-        backgroundColor: "white",
-        border: "3px solid black",
-      }}
     >
       <Grid
         container={true}
@@ -48,8 +44,13 @@ const SortOptions = (props: SortOptionsProps) => {
           item={true}
           xs={12}
           sm={6}
+          sx={{
+            padding: '10px',
+          }}
         >
-          <FormControl>
+          <FormControl
+            fullWidth={true}
+          >
             <TextField 
               id={"page"} 
               label={"Page"}
@@ -64,8 +65,13 @@ const SortOptions = (props: SortOptionsProps) => {
           item={true}
           xs={12}
           sm={6}
+          sx={{
+            padding: '10px',
+          }}
         >
-          <FormControl>
+          <FormControl
+            fullWidth={true}
+          >
             <TextField 
               id={"pageSize"}
               label={"Page size"}
@@ -85,9 +91,14 @@ const SortOptions = (props: SortOptionsProps) => {
           item={true}
           xs={12}
           sm={6}
+          sx={{
+            padding: '10px',
+          }}
         >
 
-          <FormControl>
+          <FormControl
+            fullWidth={true}
+          >
             <InputLabel id={"order-select-label"}>Sort order</InputLabel>
             <Select
               id={"order"}
@@ -96,8 +107,8 @@ const SortOptions = (props: SortOptionsProps) => {
               value={sortOrder}
               onChange={(event) => onSortOrderChange(event.target.value as SortOrder)}
             >
-              <MenuItem value={"desc"}>desc</MenuItem>
-              <MenuItem value={"asc"}>asc</MenuItem>
+              <MenuItem value={"desc"}>Descending</MenuItem>
+              <MenuItem value={"asc"}>Ascending</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -106,8 +117,13 @@ const SortOptions = (props: SortOptionsProps) => {
           item={true}
           xs={12}
           sm={6}
+          sx={{
+            padding: '10px',
+          }}
         >
-          <FormControl>
+          <FormControl
+            fullWidth={true}
+          >
             <InputLabel id={"sort-select-label"}>Sort by</InputLabel>
             <Select
               id={"sort"}
@@ -116,9 +132,9 @@ const SortOptions = (props: SortOptionsProps) => {
               value={sortCol}
               onChange={(event) => onSortColChange(event.target.value as SortCol)}
             >
-              <MenuItem value={"popular"}>popular</MenuItem>
-              <MenuItem value={"activity"}>activity</MenuItem>
-              <MenuItem value={"name"}>name</MenuItem>
+              <MenuItem value={"popular"}>Popular</MenuItem>
+              <MenuItem value={"activity"}>Activity</MenuItem>
+              <MenuItem value={"name"}>Name</MenuItem>
             </Select>
           </FormControl>
         </Grid>
