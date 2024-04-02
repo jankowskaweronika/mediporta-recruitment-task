@@ -5,60 +5,48 @@ import TableWithPagination from "../organisms/TableWithPagination/TableWithPagin
 
 export const MainPage = () => {
   const {
-    tags, 
-    totalPages, 
-    currentPage, 
-    sortCol, 
-    sortOrder, 
-    // pageSize, 
+    tags,
+    totalPages,
+    currentPage,
+    sortCol,
+    sortOrder,
+    // pageSize,
     status,
 
-    loadTags, 
-    onPageChange, 
-    // onSortColChange, 
-    // onSortOrderChange, 
-    // onPageSizeChange 
+    loadTags,
+    onPageChange,
+    // onSortColChange,
+    // onSortOrderChange,
+    // onPageSizeChange
   } = useTags()
 
   return (
     <div>
-      <Button
-        onClick={loadTags}
-      >
-        LOAD
-      </Button>
+      <Button onClick={loadTags}>LOAD</Button>
       {
         // form with options to select – molecule
       }
-      {
-        status === 'rejected' ?
-        'error'
-        :
-          status === 'pending' ?
-          'loading data'
-          :
-          status === 'idle' ?
-          'Select options'
-          : 
-          status === 'resolved' && tags && totalPages ?
-      <TableWithPagination 
-         rows={tags} 
-         totalPages={totalPages}
-         currentPage={currentPage}
-         sortCol={sortCol}
-         sortOrder={sortOrder}
-         
-         onPageChange={onPageChange}
+      {status === "rejected" ? (
+        "error"
+      ) : status === "pending" ? (
+        "loading data"
+      ) : status === "idle" ? (
+        "Select options"
+      ) : status === "resolved" && tags && totalPages ? (
+        <TableWithPagination
+          rows={tags}
+          totalPages={totalPages}
+          currentPage={currentPage}
+          sortCol={sortCol}
+          sortOrder={sortOrder}
+          onPageChange={onPageChange}
 
-         //  pageSize={pageSize}
-        //  onSortColChange={onSortColChange}
-        //  onSortOrderChange={onSortOrderChange}
-        //  onPageSizeChange={onPageSizeChange}
-
-      />
-      :
-      null
-      }
+          //  pageSize={pageSize}
+          //  onSortColChange={onSortColChange}
+          //  onSortOrderChange={onSortOrderChange}
+          //  onPageSizeChange={onPageSizeChange}
+        />
+      ) : null}
     </div>
   )
 }
