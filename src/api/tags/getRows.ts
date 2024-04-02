@@ -39,16 +39,20 @@ export const getRows = async (params: GetRowsParams) => {
   const urlRows = `https://api.stackexchange.com/2.3/tags?page=${page}&pagesize=${pageSize}&order=${sortOrder}&sort=${sortCol}&site=stackoverflow`
   const urlTotal = `${urlRows}&filter=total` 
 
-  try {
-    const responseRows = await fetch(urlRows)
-    const responseTotal = await fetch(urlTotal)
-    const resultRows = (await responseRows.json()) as ResponseTags
-    const resultTotal = (await responseTotal.json()) as ResponseTotal
-    return {
-      rows: resultRows.items,
-      totalRows: resultTotal.total
-    }
-  } catch (error) {
-    throw new Error('Error')
+  const responseRows = await fetch(urlRows)
+  const responseTotal = await fetch(urlTotal)
+  const resultRows = (await responseRows.json()) as ResponseTags
+  const resultTotal = (await responseTotal.json()) as ResponseTotal
+
+  if(responseRows.status >= 400) {
+    throw Error('GET request for tags ended with error code:' + responseRows.status)
+  }
+  if(responseTotal.status >= 400){
+    throw Error('GET request for tags total number ended with error code:' + responseRows.status)
+  }
+
+  return {
+    rows: resultRows.items,
+    totalRows: resultTotal.total
   }
 }

@@ -1,7 +1,7 @@
 import { useTags } from "../../hook/useTags"
 
-import Box from "../atoms/Box"
 import Button from "../atoms/Button"
+import CircularProgress from '../atoms/CircularProgress'
 
 import SortOptions from "../molecules/SortOptions/SortOptions"
 
@@ -18,7 +18,8 @@ export const MainPage = () => {
     sortOrder,
     status,
     pageSize,
-
+    errorMessage,
+    
     loadTags,
     onPageChange,
     onSortColChange,
@@ -43,7 +44,12 @@ export const MainPage = () => {
       contentButton={
         <Button
           fullWidth={true}
-          onClick={loadTags}
+          onClick={() => loadTags({
+            page: currentPage,
+            pageSize,
+            sortCol,
+            sortOrder,
+          })}
           variant={"outlined"}
         >
           LOAD
@@ -51,9 +57,9 @@ export const MainPage = () => {
       }
       contentTable={
         status === "rejected" ? (
-          "error"
+          errorMessage
         ) : status === "pending" ? (
-          "loading data"
+          <CircularProgress />
         ) : status === "idle" ? (
           "select options"
         ) : status === "resolved" && tags && totalPages ? (
@@ -63,7 +69,15 @@ export const MainPage = () => {
             currentPage={currentPage}
             sortCol={sortCol}
             sortOrder={sortOrder}
-            onPageChange={onPageChange}
+            onPageChange={(newPage: number) => {
+              onPageChange(newPage) 
+              loadTags({
+                page: newPage,
+                pageSize,
+                sortCol,
+                sortOrder,
+              })
+            }}
           />
         ) : null
       }

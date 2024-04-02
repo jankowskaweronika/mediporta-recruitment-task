@@ -1,3 +1,4 @@
+import Box from "../../atoms/Box"
 import Pagination, { PaginationProps } from "../../atoms/Pagination"
 import TableOfTags, { TableOfTagsProps } from "../../molecules/TableOfTags/TableOfTags"
 
@@ -12,13 +13,13 @@ type TableWithPaginationProps = (
 
 const TableWithPagination = (props: TableWithPaginationProps) => {
   const { 
-     rows,
-     sortCol,
-     sortOrder,
-     totalPages,
-     currentPage,
-     onPageChange,
-   } = props
+    rows,
+    sortCol,
+    sortOrder,
+    totalPages,
+    currentPage,
+    onPageChange,
+  } = props
  
   return (
     <>
@@ -27,11 +28,20 @@ const TableWithPagination = (props: TableWithPaginationProps) => {
         sortCol={sortCol} 
         sortOrder={sortOrder} 
       />
-      <Pagination 
-        page={currentPage}
-        count={totalPages}
-        onChange={(_, newPage) => onPageChange(newPage)}
-      />
+      <Box
+        sx={{
+          paddingTop: '15px',
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'flex-end'
+        }}
+      >
+        <Pagination
+          page={currentPage}
+          count={totalPages}
+          onChange={(_, newPage) => onPageChange(newPage)}
+        />
+      </Box>
     </>
   )
 }
