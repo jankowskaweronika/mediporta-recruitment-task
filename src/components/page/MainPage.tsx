@@ -1,5 +1,6 @@
 import { useTags } from "../../hook/useTags"
 
+import Box from "../atoms/Box"
 import Button from "../atoms/Button"
 import TableWithPagination from "../organisms/TableWithPagination/TableWithPagination"
 import SortOptions from "../molecules/SortOptions/SortOptions"
@@ -11,8 +12,8 @@ export const MainPage = () => {
     currentPage,
     sortCol,
     sortOrder,
-    pageSize,
     status,
+    pageSize,
 
     loadTags,
     onPageChange,
@@ -23,13 +24,29 @@ export const MainPage = () => {
 
   return (
     <div>
-      <Button onClick={loadTags}>LOAD</Button>
       <SortOptions 
-        onPageSize={onPageSize}
+        onPageChange={onPageChange}
         onPageSizeChange={onPageSizeChange}
         onSortColChange={onSortColChange}
         onSortOrderChange={onSortOrderChange}
+        pageSize={pageSize}
+        page={currentPage}
+        sortOrder={sortOrder}
+        sortCol={sortCol}
       />
+      <Box
+        sx={{
+          padding: '10px',
+        }}
+      >
+        <Button
+          fullWidth={true}
+          onClick={loadTags}
+          variant={"outlined"}
+        >
+          LOAD
+        </Button>
+      </Box>
       {status === "rejected" ? (
         "error"
       ) : status === "pending" ? (

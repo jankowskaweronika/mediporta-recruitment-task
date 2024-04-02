@@ -25,7 +25,6 @@ export type TableOfTagsProps = BoxProps & {
 
 const TableOfTags = (props: TableOfTagsProps) => {
   const {
-    sx,
     rows,
     sortCol,
     sortOrder,
@@ -34,11 +33,6 @@ const TableOfTags = (props: TableOfTagsProps) => {
 
   return (
     <Box
-      sx={{
-        backgroundColor: "white",
-        border: "3px solid white",
-        ...sx,
-      }}
       {...otherProps}
     >
       <TableContainer>
@@ -55,7 +49,7 @@ const TableOfTags = (props: TableOfTagsProps) => {
                     active={headCell === sortCol}
                     direction={sortOrder}
                   >
-                    <Typography variant="h6">{headCell}</Typography>
+                    <Typography variant={"h6"}>{headCell}</Typography>
                   </TableSortLabel>
                 </TableCell>
               ))}
@@ -66,7 +60,7 @@ const TableOfTags = (props: TableOfTagsProps) => {
               <TableRow key={row.name}>
                 {headCells.map((headCell) => (
                   <TableCell key={headCell}>
-                    <Typography variant="body1">{row[headCell]}</Typography>
+                    <Typography variant={"body1"}>{row[headCell]}</Typography>
                   </TableCell>
                 ))}
               </TableRow>
