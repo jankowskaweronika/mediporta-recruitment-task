@@ -2,6 +2,7 @@ import { useTags } from "../../hook/useTags"
 
 import Button from "../atoms/Button"
 import TableWithPagination from "../organisms/TableWithPagination/TableWithPagination"
+import SortOptions from "../molecules/SortOptions/SortOptions"
 
 export const MainPage = () => {
   const {
@@ -23,15 +24,13 @@ export const MainPage = () => {
   return (
     <div>
       <Button onClick={loadTags}>LOAD</Button>
-      {
-        // form with options to select – molecule
-      }
+      <SortOptions />
       {status === "rejected" ? (
         "error"
       ) : status === "pending" ? (
         "loading data"
       ) : status === "idle" ? (
-        "Select options"
+        "select options"
       ) : status === "resolved" && tags && totalPages ? (
         <TableWithPagination
           rows={tags}

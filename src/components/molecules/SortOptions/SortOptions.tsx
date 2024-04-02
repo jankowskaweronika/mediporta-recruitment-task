@@ -1,35 +1,48 @@
-import Box from "../../atoms/Box/index"
+import FormControl from "../../atoms/FormControl"
 import TextField from "../../atoms/TextField/index"
 import Select from "../../atoms/Select/index"
 import MenuItem from "../../atoms/MenuItem/index"
+import Box from "../../atoms/Box"
 
 const SortOptions = () => {
   return (
-    <div>
-      <Box
-        sx={{
-          backgroundColor: "white",
-          border: "3px solid black",
-        }}
-      >
-        <TextField id="page" label="Select"></TextField>
+    <Box
+      sx={{
+        backgroundColor: "white",
+        border: "3px solid black",
+      }}
+    >
+      <FormControl>
+        <TextField 
+          id="page" 
+          label="Page"
+          placeholder="select a number"
+        >
+        </TextField>
 
-        <TextField id="pageSize"></TextField>
+        <TextField 
+          id="pageSize"
+          label="PageSize"
+          placeholder="Select a pagesize"
+        >
+        </TextField>
+      </FormControl>
 
-        <div>
-          <Select id="order">
-            <MenuItem value={"desc"}>desc</MenuItem>
-            <MenuItem value={"asc"}>asc</MenuItem>
-          </Select>
+      <FormControl>
+        <Select 
+          id="order"
+        >
+          <MenuItem value={"desc"}>desc</MenuItem>
+          <MenuItem value={"asc"}>asc</MenuItem>
+        </Select>
 
-          <Select id="sort">
-            <MenuItem value={"popular"}>popular</MenuItem>
-            <MenuItem value={"activity"}>activity</MenuItem>
-            <MenuItem value={"name"}>name</MenuItem>
-          </Select>
-        </div>
-      </Box>
-    </div>
+        <Select id="sort">
+          <MenuItem value={"popular"}>popular</MenuItem>
+          <MenuItem value={"activity"}>activity</MenuItem>
+          <MenuItem value={"name"}>name</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
   )
 }
 
