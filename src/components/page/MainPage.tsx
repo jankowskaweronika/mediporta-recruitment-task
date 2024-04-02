@@ -11,20 +11,25 @@ export const MainPage = () => {
     currentPage,
     sortCol,
     sortOrder,
-    // pageSize,
+    pageSize,
     status,
 
     loadTags,
     onPageChange,
-    // onSortColChange,
-    // onSortOrderChange,
-    // onPageSizeChange
+    onSortColChange,
+    onSortOrderChange,
+    onPageSizeChange
   } = useTags()
 
   return (
     <div>
       <Button onClick={loadTags}>LOAD</Button>
-      <SortOptions />
+      <SortOptions 
+        onPageSize={onPageSize}
+        onPageSizeChange={onPageSizeChange}
+        onSortColChange={onSortColChange}
+        onSortOrderChange={onSortOrderChange}
+      />
       {status === "rejected" ? (
         "error"
       ) : status === "pending" ? (
@@ -39,11 +44,6 @@ export const MainPage = () => {
           sortCol={sortCol}
           sortOrder={sortOrder}
           onPageChange={onPageChange}
-
-          //  pageSize={pageSize}
-          //  onSortColChange={onSortColChange}
-          //  onSortOrderChange={onSortOrderChange}
-          //  onPageSizeChange={onPageSizeChange}
         />
       ) : null}
     </div>

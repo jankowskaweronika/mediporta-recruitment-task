@@ -22,7 +22,11 @@ const TableWithPagination = (props: TableWithPaginationProps) => {
  
   return (
     <>
-      <TableOfTags rows={rows} sortCol={sortCol} sortOrder={sortOrder} />
+      <TableOfTags 
+        rows={rows} 
+        sortCol={sortCol} 
+        sortOrder={sortOrder} 
+      />
       <Pagination 
         page={currentPage}
         count={totalPages}

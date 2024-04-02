@@ -12,10 +12,9 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-  },
-}
-
-export const Secondary: Story = {
-  args: {
+    page: 2,
+    pageSize: 10,
+    sortCol: 'activity',
+    sortOrder: 'asc'
   },
 }
