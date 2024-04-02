@@ -14,13 +14,15 @@ type RowData = {
   count: number,
 }
 type HeadCell = keyof RowData
-
 const headCells: HeadCell[] = ['name', 'count']
+type SortOrder = 'asc' | 'desc'
 
 export type TableOfTagsProps = BoxProps & {
   rows: RowData[],
   sortCol: string | 'name' | 'count',
-  sortOrder: 'asc' | 'desc',
+  sortOrder: SortOrder,
+  onSortOrderChange: (newSortOrder: SortOrder) => void,
+  onSortColChange: (newSortCol: 'name' | 'count') => void,
 }
 
 const TableOfTags = (props: TableOfTagsProps) => {
@@ -28,6 +30,8 @@ const TableOfTags = (props: TableOfTagsProps) => {
     rows,
     sortCol,
     sortOrder,
+    onSortColChange,
+    onSortOrderChange,
     ...otherProps
   } = props
 
@@ -37,19 +41,31 @@ const TableOfTags = (props: TableOfTagsProps) => {
     >
       <TableContainer>
         <Table>
-          <TableHead
-            sx={{
-              backgroundColor: "#b8c1cf",
-            }}
-          >
+          <TableHead>
             <TableRow>
               {headCells.map((headCell) => (
                 <TableCell key={headCell}>
                   <TableSortLabel
                     active={headCell === sortCol}
                     direction={sortOrder}
+                    onClick={() => {
+                      const isActive = headCell === sortCol
+                      const defaultSortOrder =  'desc'
+                      const oppositeSortOrder = sortOrder === 'asc' ? 'desc' : 'asc'
+                      const newSortCol = headCell
+                      const newSortOrder = isActive ? oppositeSortOrder : defaultSortOrder
+                      onSortColChange(newSortCol)
+                      onSortOrderChange(newSortOrder)
+                    }}
                   >
-                    <Typography variant={"h6"}>{headCell}</Typography>
+                    <Typography 
+                      variant={"h6"}
+                      sx={{
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      {headCell}
+                    </Typography>
                   </TableSortLabel>
                 </TableCell>
               ))}
@@ -60,7 +76,11 @@ const TableOfTags = (props: TableOfTagsProps) => {
               <TableRow key={row.name}>
                 {headCells.map((headCell) => (
                   <TableCell key={headCell}>
-                    <Typography variant={"body1"}>{row[headCell]}</Typography>
+                    <Typography 
+                      variant={"body1"}
+                    >
+                      {row[headCell]}
+                    </Typography>
                   </TableCell>
                 ))}
               </TableRow>

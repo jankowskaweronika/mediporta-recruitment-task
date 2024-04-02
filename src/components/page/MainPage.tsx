@@ -59,7 +59,13 @@ export const MainPage = () => {
         status === "rejected" ? (
           errorMessage
         ) : status === "pending" ? (
-          <CircularProgress />
+          <CircularProgress 
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignSelf: 'center',
+            }}
+          />
         ) : status === "idle" ? (
           "select options"
         ) : status === "resolved" && tags && totalPages ? (
@@ -69,7 +75,19 @@ export const MainPage = () => {
             currentPage={currentPage}
             sortCol={sortCol}
             sortOrder={sortOrder}
-            onPageChange={(newPage: number) => {
+            onSortOrderChange={(newSortOrder) => {
+              onSortOrderChange(newSortOrder)
+              loadTags({
+                page: currentPage,
+                pageSize,
+                sortCol,
+                sortOrder: newSortOrder,
+              })
+            }}
+            onSortColChange={(newSortCol) => {
+              onSortColChange(newSortCol)
+            }}
+            onPageChange={(newPage) => {
               onPageChange(newPage) 
               loadTags({
                 page: newPage,
