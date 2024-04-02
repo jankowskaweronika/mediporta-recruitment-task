@@ -43,7 +43,12 @@ const TableOfTags = (props: TableOfTagsProps) => {
           <TableHead>
             <TableRow>
               {headCells.map((headCell) => (
-                <TableCell key={headCell}>
+                <TableCell 
+                  key={headCell}
+                  sx={{
+                    width: '50%'
+                  }}
+                >
                   <TableSortLabel
                     active={headCell === sortCol}
                     direction={sortOrder}
@@ -73,7 +78,12 @@ const TableOfTags = (props: TableOfTagsProps) => {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 {headCells.map((headCell) => (
-                  <TableCell key={headCell}>
+                  <TableCell
+                    key={headCell}
+                    sx={{
+                      width: '50%'
+                    }}
+                  >
                     <Typography 
                       variant={"body1"}
                     >

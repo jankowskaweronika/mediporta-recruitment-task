@@ -55,20 +55,17 @@ export const MainPage = () => {
           LOAD
         </Button>
       }
+      contentTableLoader={
+        status === "pending" ? (
+          <CircularProgress />
+        ) : null
+      }
       contentTable={
         status === "rejected" ? (
           errorMessage
-        ) : status === "pending" ? (
-          <CircularProgress 
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignSelf: 'center',
-            }}
-          />
         ) : status === "idle" ? (
           "select options"
-        ) : status === "resolved" && tags && totalPages ? (
+        ) : ((status === "resolved" || status === 'pending') && tags && totalPages) ? (
           <TableWithPagination
             rows={tags}
             totalPages={totalPages}

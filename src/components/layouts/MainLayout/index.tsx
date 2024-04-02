@@ -4,6 +4,7 @@ import Box,  { BoxProps } from "../../atoms/Box"
 type MainLayoutProps = BoxProps & {
   contentSortOptions: React.ReactNode,
   contentButton: React.ReactNode,
+  contentTableLoader: React.ReactNode,
   contentTable: React.ReactNode,
 }
 
@@ -12,6 +13,7 @@ const MainLayout = (props: MainLayoutProps) => {
     contentSortOptions,
     contentButton,
     contentTable,
+    contentTableLoader,
     ...otherProps
   } = props
 
@@ -36,8 +38,30 @@ const MainLayout = (props: MainLayoutProps) => {
       <Box
         sx={{
           padding: '10px',
+          position: 'relative',
+          minHeight: '100px',
         }}
       >
+        {
+          contentTableLoader ?
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'rgba(255, 255, 255, 0.5)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              {contentTableLoader}
+            </Box>
+            :
+            null
+        }
         {contentTable}
       </Box>
     </Box>
