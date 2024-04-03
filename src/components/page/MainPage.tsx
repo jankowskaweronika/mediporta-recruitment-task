@@ -2,6 +2,7 @@ import { useTags } from "../../hook/useTags"
 
 import Button from "../atoms/Button"
 import CircularProgress from '../atoms/CircularProgress'
+import Alert from '../atoms/Alert'
 
 import SortOptions from "../molecules/SortOptions/SortOptions"
 
@@ -62,7 +63,10 @@ export const MainPage = () => {
       }
       contentTable={
         status === "rejected" ? (
-          errorMessage
+          <>
+            {errorMessage}
+            <Alert />
+          </>
         ) : status === "idle" ? (
           "select options"
         ) : ((status === "resolved" || status === 'pending') && tags && totalPages) ? (
