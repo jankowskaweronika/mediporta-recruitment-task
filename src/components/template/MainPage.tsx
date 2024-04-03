@@ -4,7 +4,7 @@ import Button from "../atoms/Button"
 import CircularProgress from '../atoms/CircularProgress'
 import Alert from '../atoms/Alert'
 
-import SortOptions from "../molecules/SortOptions/SortOptions"
+import SortOptions from "../organisms/SortOptions/SortOptions"
 
 import TableWithPagination from "../organisms/TableWithPagination/TableWithPagination"
 
