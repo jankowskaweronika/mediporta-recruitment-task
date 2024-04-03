@@ -4,7 +4,6 @@ import SortOptions from './SortOptions'
 
 const meta: Meta<typeof SortOptions> = {
   component: SortOptions,
-  title: 'SortOptions'
 }
 
 export default meta 

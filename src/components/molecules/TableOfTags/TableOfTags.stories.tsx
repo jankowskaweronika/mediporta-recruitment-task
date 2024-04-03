@@ -27,7 +27,6 @@ const rows = [
 
 const meta: Meta<typeof TableOfTags> = {
   component: TableOfTags,
-  title: 'TableOfTags'
 }
 
 export default meta
