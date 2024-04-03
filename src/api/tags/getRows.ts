@@ -28,6 +28,12 @@ type ResponseTotal = {
   total: number,
 }
 
+type ResponseError = {
+  error_id: number,
+  error_message: string,
+  error_name: string,
+}
+
 export const getRows = async (params: GetRowsParams) => {
   const {
     sortCol,
@@ -41,18 +47,20 @@ export const getRows = async (params: GetRowsParams) => {
 
   const responseRows = await fetch(urlRows)
   const responseTotal = await fetch(urlTotal)
-  const resultRows = (await responseRows.json()) as ResponseTags
-  const resultTotal = (await responseTotal.json()) as ResponseTotal
+  const resultRows = (await responseRows.json()) as ResponseTags | ResponseError
+  const resultTotal = (await responseTotal.json()) as ResponseTotal | ResponseError
 
   if(responseRows.status >= 400) {
-    throw Error('GET request for tags ended with error code:' + responseRows.status)
+    const errorMessage = (resultRows as ResponseError).error_message
+    throw Error(`Request for tags ended with error code: ${responseRows.status} and message: "${errorMessage}"`)
   }
   if(responseTotal.status >= 400){
-    throw Error('GET request for tags total number ended with error code:' + responseRows.status)
+    const errorMessage = (resultRows as ResponseError).error_message
+    throw Error(`Request for tags total number ended with error code: ${responseRows.status} and message: "${errorMessage}"`)
   }
 
   return {
-    rows: resultRows.items,
-    totalRows: resultTotal.total
+    rows: (resultRows as ResponseTags).items,
+    totalRows: (resultTotal as ResponseTotal).total
   }
 }

@@ -14,10 +14,4 @@ export const PaginationStory: Story = {
     page: 3,
     count: 10,
   },
-  argTypes: {
-    onChange: { 
-      action: 'onChange callback was called with' 
-    }, 
-  },
-
 }

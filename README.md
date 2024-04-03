@@ -8,5 +8,7 @@ This project is a table that fetches data from the API. This table sorts data, d
 
 ## How to Install and Run the Project
 
-Clone the repo git@github.com:jankowskaweronika/mediporta-recruitment-task.git
-Install NPM packages npm install
+1. Clone the repo
+   git@github.com:jankowskaweronika/mediporta-recruitment-task.git
+2. Install NPM packages
+   npm install

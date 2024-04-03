@@ -1,5 +1,6 @@
 import { useTags } from "../../hook/useTags"
 
+import Box from "../atoms/Box"
 import Button from "../atoms/Button"
 import CircularProgress from '../atoms/CircularProgress'
 import Alert from '../atoms/Alert'
@@ -45,6 +46,7 @@ export const MainPage = () => {
       contentButton={
         <Button
           fullWidth={true}
+          disabled={status === 'pending'}
           onClick={() => loadTags({
             page: currentPage,
             pageSize,
@@ -63,8 +65,8 @@ export const MainPage = () => {
       }
       contentTable={
         status === "rejected" ? (
-          <div
-            style={{ 
+          <Box
+            sx={{ 
               width: '100%', 
               height:'60vh', 
               display: 'flex',
@@ -78,10 +80,10 @@ export const MainPage = () => {
             >
               {errorMessage}
             </Alert>  
-          </div>
+          </Box>
         ) : status === "idle" ? (
-          <div
-            style={{ 
+          <Box
+            sx={{ 
               width: '100%', 
               height:'60vh', 
               display: 'flex',
@@ -89,14 +91,13 @@ export const MainPage = () => {
               alignItems: 'center'
             }}
           >
-            <img
-              src={"/man.png"}
-              alt={"image"}
-              width={"100px"} 
-              height={"auto"}
-            />
-            Select options
-          </div>
+            <Alert 
+              variant= {"outlined"}
+              severity= {"info"}
+            >
+              Please select options above and click load to see the results
+            </Alert>
+          </Box>
         ) : ((status === "resolved" || status === 'pending') && tags && totalPages) ? (
           <TableWithPagination
             rows={tags}
