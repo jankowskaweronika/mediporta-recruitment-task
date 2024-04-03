@@ -2,6 +2,12 @@
 
 This project is a recruiting assignment that I am doing to get a job as a Junior React Developer.
 
+## Links
+
+[App deployment ✨](https://mediporta-app.surge.sh)
+
+[Storybook deployment 💄](https://mediporta-storybook.surge.sh)
+
 ## Project Decisions
 
 - Vite as a bundler as CRA is deprecated
