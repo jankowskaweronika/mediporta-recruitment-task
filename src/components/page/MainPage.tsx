@@ -63,12 +63,40 @@ export const MainPage = () => {
       }
       contentTable={
         status === "rejected" ? (
-          <>
-            {errorMessage}
-            <Alert />
-          </>
+          <div
+            style={{ 
+              width: '100%', 
+              height:'60vh', 
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Alert 
+              variant= {"outlined"}
+              severity= {"error"}
+            >
+              {errorMessage}
+            </Alert>  
+          </div>
         ) : status === "idle" ? (
-          "select options"
+          <div
+            style={{ 
+              width: '100%', 
+              height:'60vh', 
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <img
+              src={"/man.png"}
+              alt={"image"}
+              width={"100px"} 
+              height={"auto"}
+            />
+            Select options
+          </div>
         ) : ((status === "resolved" || status === 'pending') && tags && totalPages) ? (
           <TableWithPagination
             rows={tags}
