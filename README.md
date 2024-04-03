@@ -22,6 +22,10 @@ This project is a recruiting assignment that I am doing to get a job as a Junior
 - Adding some tests or business logic
 - Adding more stories
 
+## Known issues
+
+- Without API key StackOverflow API do not allow to see pages over 25th – error from the API is handled in the UI
+
 ## How To Run The Project
 
 1. Install NPM packages `npm install`
